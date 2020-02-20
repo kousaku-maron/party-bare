@@ -3,6 +3,7 @@ package com.party;
 import android.app.Application;
 
 import com.facebook.react.ReactApplication;
+import io.expo.appearance.RNCAppearancePackage;
 import com.th3rdwave.safeareacontext.SafeAreaContextPackage;
 import org.reactnative.maskedview.RNCMaskedViewPackage;
 import com.facebook.react.ReactNativeHost;
@@ -42,6 +43,7 @@ public class MainApplication extends Application implements ReactApplication {
     protected List<ReactPackage> getPackages() {
       return Arrays.<ReactPackage>asList(
           new MainReactPackage(),
+            new RNCAppearancePackage(),
             new SafeAreaContextPackage(),
             new RNCMaskedViewPackage(),
           new ReanimatedPackage(),

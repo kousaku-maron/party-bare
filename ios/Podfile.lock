@@ -1,11 +1,26 @@
 PODS:
+  - AppAuth (1.3.0):
+    - AppAuth/Core (= 1.3.0)
+    - AppAuth/ExternalUserAgent (= 1.3.0)
+  - AppAuth/Core (1.3.0)
+  - AppAuth/ExternalUserAgent (1.3.0)
   - boost-for-react-native (1.63.0)
   - DoubleConversion (1.1.6)
+  - EXAppAuth (8.0.0):
+    - AppAuth (~> 1.2)
+    - UMCore
+  - EXAppleAuthentication (2.0.0):
+    - UMCore
   - EXAppLoaderProvider (8.0.0)
   - EXConstants (8.0.0):
     - UMConstantsInterface
     - UMCore
   - EXErrorRecovery (1.0.0):
+    - UMCore
+  - EXFacebook (8.0.0):
+    - FBSDKCoreKit (~> 5.8.0)
+    - FBSDKLoginKit (~> 5.8.0)
+    - UMConstantsInterface
     - UMCore
   - EXFileSystem (8.0.0):
     - UMCore
@@ -37,6 +52,16 @@ PODS:
     - React-Core (= 0.61.5)
     - React-jsi (= 0.61.5)
     - ReactCommon/turbomodule/core (= 0.61.5)
+  - FBSDKCoreKit (5.8.0):
+    - FBSDKCoreKit/Basics (= 5.8.0)
+    - FBSDKCoreKit/Core (= 5.8.0)
+  - FBSDKCoreKit/Basics (5.8.0)
+  - FBSDKCoreKit/Core (5.8.0):
+    - FBSDKCoreKit/Basics
+  - FBSDKLoginKit (5.8.0):
+    - FBSDKLoginKit/Login (= 5.8.0)
+  - FBSDKLoginKit/Login (5.8.0):
+    - FBSDKCoreKit (~> 5.0)
   - Folly (2018.10.22.00):
     - boost-for-react-native
     - DoubleConversion
@@ -210,6 +235,8 @@ PODS:
     - React-cxxreact (= 0.61.5)
     - React-jsi (= 0.61.5)
   - React-jsinspector (0.61.5)
+  - react-native-appearance (0.3.2):
+    - React
   - react-native-safe-area-context (0.6.0):
     - React
   - React-RCTActionSheet (0.61.5):
@@ -274,9 +301,12 @@ PODS:
 
 DEPENDENCIES:
   - DoubleConversion (from `../node_modules/react-native/third-party-podspecs/DoubleConversion.podspec`)
+  - EXAppAuth (from `../node_modules/expo-app-auth/ios`)
+  - EXAppleAuthentication (from `../node_modules/expo-apple-authentication/ios`)
   - EXAppLoaderProvider (from `../node_modules/expo-app-loader-provider/ios`)
   - EXConstants (from `../node_modules/expo-constants/ios`)
   - EXErrorRecovery (from `../node_modules/expo-error-recovery/ios`)
+  - EXFacebook (from `../node_modules/expo-facebook/ios`)
   - EXFileSystem (from `../node_modules/expo-file-system/ios`)
   - EXFont (from `../node_modules/expo-font/ios`)
   - EXKeepAwake (from `../node_modules/expo-keep-awake/ios`)
@@ -300,6 +330,7 @@ DEPENDENCIES:
   - React-jsi (from `../node_modules/react-native/ReactCommon/jsi`)
   - React-jsiexecutor (from `../node_modules/react-native/ReactCommon/jsiexecutor`)
   - React-jsinspector (from `../node_modules/react-native/ReactCommon/jsinspector`)
+  - react-native-appearance (from `../node_modules/react-native-appearance`)
   - react-native-safe-area-context (from `../node_modules/react-native-safe-area-context`)
   - React-RCTActionSheet (from `../node_modules/react-native/Libraries/ActionSheetIOS`)
   - React-RCTAnimation (from `../node_modules/react-native/Libraries/NativeAnimation`)
@@ -332,11 +363,20 @@ DEPENDENCIES:
 
 SPEC REPOS:
   trunk:
+    - AppAuth
     - boost-for-react-native
+    - FBSDKCoreKit
+    - FBSDKLoginKit
 
 EXTERNAL SOURCES:
   DoubleConversion:
     :podspec: "../node_modules/react-native/third-party-podspecs/DoubleConversion.podspec"
+  EXAppAuth:
+    :path: !ruby/object:Pathname
+    path: "../node_modules/expo-app-auth/ios"
+  EXAppleAuthentication:
+    :path: !ruby/object:Pathname
+    path: "../node_modules/expo-apple-authentication/ios"
   EXAppLoaderProvider:
     :path: !ruby/object:Pathname
     path: "../node_modules/expo-app-loader-provider/ios"
@@ -346,6 +386,9 @@ EXTERNAL SOURCES:
   EXErrorRecovery:
     :path: !ruby/object:Pathname
     path: "../node_modules/expo-error-recovery/ios"
+  EXFacebook:
+    :path: !ruby/object:Pathname
+    path: "../node_modules/expo-facebook/ios"
   EXFileSystem:
     :path: !ruby/object:Pathname
     path: "../node_modules/expo-file-system/ios"
@@ -396,6 +439,8 @@ EXTERNAL SOURCES:
     :path: "../node_modules/react-native/ReactCommon/jsiexecutor"
   React-jsinspector:
     :path: "../node_modules/react-native/ReactCommon/jsinspector"
+  react-native-appearance:
+    :path: "../node_modules/react-native-appearance"
   react-native-safe-area-context:
     :path: "../node_modules/react-native-safe-area-context"
   React-RCTActionSheet:
@@ -466,11 +511,15 @@ EXTERNAL SOURCES:
     :path: "../node_modules/react-native/ReactCommon/yoga"
 
 SPEC CHECKSUMS:
+  AppAuth: 73574f3013a1e65b9601a3ddc8b3158cce68c09d
   boost-for-react-native: 39c7adb57c4e60d6c5479dd8623128eb5b3f0f2c
   DoubleConversion: 5805e889d232975c086db112ece9ed034df7a0b2
+  EXAppAuth: bd859a5717613e72cc3cfbc2128e04b4f0e0ff5a
+  EXAppleAuthentication: 7d20ab4397f595d22c2fe61ca6abfca16a346a72
   EXAppLoaderProvider: ebdb6bc2632c1ccadbe49f5e4104d8d690969c49
   EXConstants: 4051b16c17ef3defa03c541d42811dc92b249146
   EXErrorRecovery: d36db99ec6a3808f313f01b0890eb443796dd1c2
+  EXFacebook: c10f77ea97b3003c29b4f0a49942acc1ba8330b5
   EXFileSystem: 6e0d9bb6cc4ea404dbb8f583c1a8a2dcdf4b83b6
   EXFont: 6187b5ab46ee578d5f8e7f2ea092752e78772235
   EXKeepAwake: 66e9f80b6d129633725a0e42f8d285c229876811
@@ -481,6 +530,8 @@ SPEC CHECKSUMS:
   EXWebBrowser: db32607359fb7b55b7b7b91df32dd3d8355bb3b7
   FBLazyVector: aaeaf388755e4f29cd74acbc9e3b8da6d807c37f
   FBReactNativeSpec: 118d0d177724c2d67f08a59136eb29ef5943ec75
+  FBSDKCoreKit: e7dcac0aabcfb09d0166998edd95fe3b05a0ce5d
+  FBSDKLoginKit: 1b0cf04df0370b37404213157b060d6666ede814
   Folly: 30e7936e1c45c08d884aa59369ed951a8e68cf51
   glog: 1f3da668190260b06b429bb211bfbee5cd790c28
   RCTRequired: b153add4da6e7dbc44aebf93f3cf4fcae392ddf1
@@ -492,6 +543,7 @@ SPEC CHECKSUMS:
   React-jsi: cb2cd74d7ccf4cffb071a46833613edc79cdf8f7
   React-jsiexecutor: d5525f9ed5f782fdbacb64b9b01a43a9323d2386
   React-jsinspector: fa0ecc501688c3c4c34f28834a76302233e29dc0
+  react-native-appearance: c2e0666225d999f7f0e7d9a9cb6c627c6e4c4b92
   react-native-safe-area-context: d288138da2c800caa111f9352e9333f186a06ead
   React-RCTActionSheet: 600b4d10e3aea0913b5a92256d2719c0cdd26d76
   React-RCTAnimation: 791a87558389c80908ed06cc5dfc5e7920dfa360
@@ -521,6 +573,6 @@ SPEC CHECKSUMS:
   UMTaskManagerInterface: a98e37a576a5220bf43b8faf33cfdc129d2f441d
   Yoga: f2a7cd4280bfe2cca5a7aed98ba0eb3d1310f18b
 
-PODFILE CHECKSUM: 75099095eec3135b6b7d25a907fecd3a29ba7f0a
+PODFILE CHECKSUM: 4e64fc0922446720fdff9b12aa62d3c6e0db6895
 
 COCOAPODS: 1.8.4
