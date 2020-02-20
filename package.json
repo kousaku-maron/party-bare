@@ -1,26 +1,59 @@
 {
-  "main": "node_modules/expo/AppEntry.js",
   "scripts": {
-    "start": "expo start",
-    "android": "expo start --android",
-    "ios": "expo start --ios",
+    "start": "react-native start",
+    "android": "react-native run-android",
+    "ios": "react-native run-ios",
     "web": "expo start --web",
-    "eject": "expo eject"
+    "postinstall": "jetify",
+    "lint": "yarn eslint './src/**/*.{ts,tsx}'",
+    "lint:fix": "yarn eslint './src/**/*.{ts,tsx}' --fix"
+  },
+  "husky": {
+    "hooks": {
+      "pre-commit": "lint-staged"
+    }
+  },
+  "lint-staged": {
+    "*.{ts,tsx}": [
+      "eslint './src/**/*.{ts,tsx}'"
+    ]
   },
   "dependencies": {
     "expo": "~36.0.0",
+    "firebase": "^7.8.2",
     "react": "~16.9.0",
     "react-dom": "~16.9.0",
-    "react-native": "https://github.com/expo/react-native/archive/sdk-36.0.0.tar.gz",
+    "react-native": "~0.61.4",
+    "react-native-gesture-handler": "~1.5.0",
+    "react-native-reanimated": "~1.4.0",
     "react-native-screens": "2.0.0-alpha.12",
+    "react-native-unimodules": "~0.7.0",
     "react-native-web": "~0.11.7"
   },
   "devDependencies": {
+    "@babel/core": "^7.0.0",
+    "@types/node": "^13.7.4",
     "@types/react": "~16.9.0",
     "@types/react-native": "~0.60.23",
-    "@babel/core": "^7.0.0",
+    "@typescript-eslint/eslint-plugin": "^2.20.0",
+    "@typescript-eslint/parser": "^2.20.0",
+    "babel-jest": "~24.9.0",
+    "babel-plugin-inline-dotenv": "^1.5.0",
     "babel-preset-expo": "~8.0.0",
-    "typescript": "~3.6.3"
+    "eslint": "^6.8.0",
+    "eslint-config-prettier": "^6.10.0",
+    "eslint-plugin-prettier": "^3.1.2",
+    "eslint-plugin-react": "^7.18.3",
+    "eslint-plugin-react-hooks": "^2.4.0",
+    "husky": "^4.2.3",
+    "jest": "~24.9.0",
+    "jetifier": "~1.6.4",
+    "lint-staged": "^10.0.7",
+    "metro-react-native-babel-preset": "~0.56.0",
+    "pre-commit": "^1.2.2",
+    "prettier": "^1.19.1",
+    "react-test-renderer": "~16.9.0",
+    "typescript": "^3.7.5"
   },
   "private": true
 }
