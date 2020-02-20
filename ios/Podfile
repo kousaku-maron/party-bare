@@ -49,4 +49,8 @@ target 'party' do
 
   pod 'react-native-appearance', :path => '../node_modules/react-native-appearance'
 
+  pod 'react-native-webview', :path => '../node_modules/react-native-webview'
+
+  pod 'RNSVG', :path => '../node_modules/react-native-svg'
+
 end

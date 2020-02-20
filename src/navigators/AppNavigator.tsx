@@ -2,13 +2,13 @@ import React from 'react'
 import { createStackNavigator } from '@react-navigation/stack'
 import WelcomeNavigator from './WelcomeNavigator'
 import TabNavigator from './TabNavigator'
-import Hello from '../components/Hello'
+import AuthLoadingScreen from '../screens/AuthLoadingScreen'
 
 const Stack = createStackNavigator()
 
 const AppNavigator = () => (
   <Stack.Navigator initialRouteName="AuthLoading" screenOptions={{ gestureEnabled: false }} headerMode="none">
-    <Stack.Screen name="AuthLoading" component={Hello} />
+    <Stack.Screen name="AuthLoading" component={AuthLoadingScreen} />
     <Stack.Screen name="Welcome" component={WelcomeNavigator} />
     <Stack.Screen name="App">{() => <TabNavigator />}</Stack.Screen>
   </Stack.Navigator>
