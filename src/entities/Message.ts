@@ -1,6 +1,4 @@
-// import { QuickReplies } from 'react-native-gifted-chat'
-// eslint-disable-next-line @typescript-eslint/no-explicit-any
-type QuickReplies = any
+import { QuickReplies } from 'react-native-gifted-chat'
 
 // same User type
 export type MessageUser = {
