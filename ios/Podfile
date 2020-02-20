@@ -43,4 +43,8 @@ target 'party' do
 
   # Automatically detect installed unimodules
   use_unimodules!
+  pod 'RNCMaskedView', :path => '../node_modules/@react-native-community/masked-view'
+
+  pod 'react-native-safe-area-context', :path => '../node_modules/react-native-safe-area-context'
+
 end
