@@ -1,6 +1,6 @@
 import React from 'react'
 // import { NavigationContainer } from '@react-navigation/native'
-import { YellowBox, Text, View } from 'react-native'
+import { YellowBox } from 'react-native'
 import { enableScreens } from 'react-native-screens'
 // import { Provider } from 'react-redux'
 // import { AppearanceProvider } from 'react-native-appearance'
@@ -8,6 +8,7 @@ import { enableScreens } from 'react-native-screens'
 // import AppNavigator from './src/navigators/AppNavigator'
 // import FlashMessage from 'react-native-flash-message'
 // import { LoadingModal } from './src/components/organisms'
+import Hello from './src/components/Hello'
 
 // MEMO: react最新バージョンに対応仕切れていないライブラリがあるため、特定の警告を画面に表示させないようにしている。
 YellowBox.ignoreWarnings([
@@ -32,14 +33,7 @@ const App = (): JSX.Element => {
   //   </NavigationContainer>
   // )
 
-  return (
-    <View>
-      <Text>hello world</Text>
-      <Text>hello world</Text>
-      <Text>hello world</Text>
-      <Text>hello world</Text>
-    </View>
-  )
+  return <Hello />
 }
 
 export default App
